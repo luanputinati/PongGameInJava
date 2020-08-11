@@ -1,27 +1,20 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Enemy {
-
-	public double x, y;
-	public int width, height;
+public class Enemy extends Entity {
 	
 	public Enemy(int x, int y) {
-		this.x = x;
-		this.y = y;
-		width = 10;
-		height = 50;
+		super(x, y);
 	}
 	
-	public void Update() {
+	public void update() {
 		y+= (Game.ball.y - y - 6);
 		
 	}
-	
-	
-	public void Render(Graphics G) {
-		G.setColor(Color.RED); //Cor do jogador
-		G.fillRect((int)x, (int)y, width, height);
+
+	public void render(Graphics g) {
+		g.setColor(Color.RED); //Cor do jogador
+		g.fillRect(x, y, width, height); //Renderização da cor
 	}
 
 }

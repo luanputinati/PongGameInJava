@@ -45,26 +45,26 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	}
 	
 	
-	public void Update() {
-		player.Update();
-		enemy.Update();
-		ball.Update();
+	public void update() {
+		player.update();
+		enemy.update();
+		ball.update();
 	}
 	
-	public void Render() {
+	public void render() {
 		BufferStrategy BS = this.getBufferStrategy();
 		if(BS == null) { 
 			this.createBufferStrategy(3);
 			return;
 		}
-		Graphics G = layer.getGraphics();
-		G.setColor(Color.BLACK);
-		G.fillRect(0,0,WIDTH,HEIGHT);
-		player.Render(G);
-		enemy.Render(G);
-		ball.Render(G);
-		G = BS.getDrawGraphics();
-		G.drawImage(layer, 0, 0, WIDTH*SCALE, HEIGHT*SCALE,null);
+		Graphics g = layer.getGraphics();
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0,WIDTH,HEIGHT);
+		player.render(g);
+		enemy.render(g);
+		ball.render(g);
+		g = BS.getDrawGraphics();
+		g.drawImage(layer, 0, 0, WIDTH*SCALE, HEIGHT*SCALE,null);
 		BS.show();
 		
 	}
@@ -83,8 +83,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 			delta+= (now-lastTime) / ns; 
 			lastTime = now;
 			if (delta >= 1) {
-				Update();
-				Render();
+				update();
+				render();
 				frames++;
 				delta--; 
 			}

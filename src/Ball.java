@@ -20,7 +20,7 @@ public class Ball {
 		dy = new Random().nextGaussian();
 	}
 	
-	public void Update() {
+	public void update() {
 		
 		if(y+(dy*speed) + height >= Game.HEIGHT) {
 			dy*=-1;
@@ -55,9 +55,9 @@ public class Ball {
 	}
 	
 	
-	public void Render(Graphics G) {
-		G.setColor(Color.YELLOW); //Cor do jogador
-		G.fillRect((int)x, (int)y, width, height);
+	public void render(Graphics g) {
+		g.setColor(Color.YELLOW); //Cor do jogador
+		g.fillRect((int)x, (int)y, width, height);
 		
 	}
 }

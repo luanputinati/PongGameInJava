@@ -1,23 +1,15 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Player{
-
-	public int width,height;
+public class Player extends Entity{
 	
-	public boolean up,down;
-	
-	
-	public int x,y;
+	protected boolean up,down;
 	
 	public Player(int x, int y) {
-		this.x = x;
-		this.y = y;
-		width = 10;
-		height = 50;
+		super(x, y);
 	}
 	
-	public void Update(){
+	public void update(){
 		if(up) {
 			y++;
 		} else if(down) {
@@ -30,9 +22,9 @@ public class Player{
 		}
 	}
 	
-	public void Render(Graphics G) {
-		G.setColor(Color.WHITE); //Cor do jogador
-		G.fillRect(x, y, width, height);
+	public void render(Graphics g) {
+		g.setColor(Color.CYAN); //Cor do jogador
+		g.fillRect(x, y, width, height); //Renderização da cor
 	}
 
 }
